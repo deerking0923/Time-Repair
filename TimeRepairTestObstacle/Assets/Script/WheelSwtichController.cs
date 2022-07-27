@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwtichController : MonoBehaviour
+public class WheelSwtichController : MonoBehaviour
 {
     GameObject[] Wheel;
 
