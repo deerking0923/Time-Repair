@@ -39,8 +39,6 @@ public class PlayerController : MonoBehaviour
 
     void MoveX()
     {
-        // 애니매이션
-        
         float x = Input.GetAxis("Horizontal") * speed;
         rigid2D.velocity = new Vector2(x, rigid2D.velocity.y);
 
@@ -58,10 +56,27 @@ public class PlayerController : MonoBehaviour
         if (isGround())
         {
             JumpCount = 0;
+            animator.SetBool("PlayerJumpDown", false);
+            animator.SetBool("PlayerJump", false);
         }
 
         // 조건에 맞고 스페이즈바 누르면 점프
         if (isJumpDelay == false && JumpLimit > JumpCount && Input.GetKeyDown(KeyCode.Space))  {
+
+            // 애니매이션
+            if (rigid2D.velocity.y == 0)
+            {
+                animator.SetBool("PlayerJump", true);
+                animator.SetBool("PlayerJumpDown", false);
+                StartCoroutine(JumpAnimationDelay());
+            }
+            // 착륙 중일 때 애니매이션 실행
+            else if (rigid2D.velocity.y > 0)
+            {
+                animator.SetBool("PlayerJumpDown", true);
+            }
+
+            // 점프 구현
             isJumpDelay = true;
             JumpCount++;
             rigid2D.velocity = new Vector2(rigid2D.velocity.x, JumpForce);
@@ -73,6 +88,13 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         isJumpDelay = false;
+    }
+
+    // 점프 애니매이션 관련 Coroutine
+    IEnumerator JumpAnimationDelay()
+    {
+        yield return new WaitForSeconds(0.6f);
+        animator.SetBool("PlayerJumpDown", true);
     }
 
     bool isGround() {

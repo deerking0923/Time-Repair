@@ -10,7 +10,7 @@ public class WheelController : MonoBehaviour
 
     bool isStop = false;        // 멈추는 중인지 확인
     bool isReverse = false;     // 방향을 바꿔야 하는지 확인
-    bool Control = false;
+    bool ReverseDir = false;    // 함수 실행 시작
 
     void Start()
     {
@@ -19,10 +19,8 @@ public class WheelController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Setting();
         move();
-
-        if (Control)
+        if (ReverseDir)
         {
             ReverseRot();
         }
@@ -90,7 +88,7 @@ public class WheelController : MonoBehaviour
         {
             Debug.Log("방향 전환 완료");
             WheSpeed = BaseSpeed;
-            Control = false;              // 전환 끝내는 flag
+            ReverseDir = false;              // 전환 끝내는 flag
         }
     }
 
@@ -113,12 +111,9 @@ public class WheelController : MonoBehaviour
         RotStart();
     }
 
-    // Test용 입력
-    void Setting()
-    {
-        if (Input.GetKey(KeyCode.L))
-        {
-            Control = true;
-        }
+    // 외부로부터 입력 받기
+    public void ReverseDirection()
+    {   
+        ReverseDir = true;
     }
 }
