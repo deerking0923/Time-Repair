@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
 
-    public bool Interaction;
+    internal bool Interaction;
 
     void Start()
     {
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         MoveX();
         Jump();
-        // InteractionObject();
+        InteractionObject();
     }
 
     void MoveX()
@@ -60,22 +60,22 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("PlayerJump", false);
         }
 
-        // 조건에 맞고 스페이즈바 누르면 점프
-        if (isJumpDelay == false && JumpLimit > JumpCount && Input.GetKeyDown(KeyCode.Space))  {
+        // 애니매이션 관련 코드 : 스페이즈바 누르면 무조건 발동
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("PlayerJump", true);
+            animator.SetBool("PlayerJumpDown", false);
+            StartCoroutine(JumpAnimationDelay());
 
-            // 애니매이션
-            if (rigid2D.velocity.y == 0)
-            {
-                animator.SetBool("PlayerJump", true);
-                animator.SetBool("PlayerJumpDown", false);
-                StartCoroutine(JumpAnimationDelay());
-            }
             // 착륙 중일 때 애니매이션 실행
-            else if (rigid2D.velocity.y > 0)
+            if (rigid2D.velocity.y > 0)
             {
                 animator.SetBool("PlayerJumpDown", true);
             }
+        }
 
+        // 조건에 맞고 스페이즈바 누르면 점프
+        if (isJumpDelay == false && JumpLimit > JumpCount && Input.GetKeyDown(KeyCode.Space))  {
             // 점프 구현
             isJumpDelay = true;
             JumpCount++;
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         // return Physics2D.OverlapCircle()...
     }
 
-    /*
+
     public void InteractionObject()
     {
         if (Input.GetKeyDown(KeyCode.X))
@@ -122,5 +122,4 @@ public class PlayerController : MonoBehaviour
         Interaction = false;
         Debug.Log("상호작용 끝");
     }
-    */
 }

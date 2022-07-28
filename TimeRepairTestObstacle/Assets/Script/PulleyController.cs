@@ -8,14 +8,12 @@ public class PulleyController : MonoBehaviour
     GameObject wheel;
     Rigidbody2D LeftRigid, RightRigid;
     internal Collider2D LeftCollider, RightCollider;
-    Collider2D CheckHeight;
 
-    // bool MovingRightDown = false, MovingLeftDown = false;
+    internal bool MovingLeftDown = true;      // 좌우 올라가는거 알려주는 flag
+    internal bool Stop = true;
 
     [SerializeField] float speed = 100.0f;
 
-    // 테스트용
-    bool test = false;
     void Awake()
     {
         // 좌, 우의 발판 가져오기
@@ -28,29 +26,33 @@ public class PulleyController : MonoBehaviour
         LeftCollider = left.GetComponent<Collider2D>(); 
         RightCollider = right.GetComponent<Collider2D>();
 
-        // CheckHeight 가져오기
-        CheckHeight = transform.GetChild(2).GetComponent<Collider2D>();
-
         // 톱니바퀴 가져오기
         wheel = transform.GetChild(3).gameObject;
     }
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        // 1. 멈춤
+        if (Stop)
         {
-            Debug.Log("작동");
-            test = true;
+            StopMoving();
         }
 
-        if (test)
+        // 1. 왼쪽 아래로 이동
+        else if (MovingLeftDown == true)
         {
             LeftDown();
+        }
+
+        // 2. 오른쪽 아래로 이동
+        else if (MovingLeftDown == false)
+        {
+            RightDown();
         }
     }
 
     // 1. 오른쪽이 밑으로
-    void RightDown()
+    internal void RightDown()
     {
         LeftRigid.velocity = Vector2.up * speed * Time.deltaTime;
         RightRigid.velocity = Vector2.down * speed * Time.deltaTime; 
@@ -58,7 +60,7 @@ public class PulleyController : MonoBehaviour
     }
 
     // 2. 왼쪽이 밑으로
-    void LeftDown()
+    internal void LeftDown()
     {
         RightRigid.velocity = Vector2.up * speed * Time.deltaTime;
         LeftRigid.velocity = Vector2.down * speed * Time.deltaTime;
@@ -71,6 +73,5 @@ public class PulleyController : MonoBehaviour
         LeftRigid.velocity = Vector2.zero;
         RightRigid.velocity = Vector2.zero;
         wheel.transform.Rotate(new Vector3(0, 0, 0), 0.0f);
-        test = false;           // 종료 변수 flag
     }
 }
