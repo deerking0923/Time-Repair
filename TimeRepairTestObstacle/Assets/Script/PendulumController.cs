@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class PendulumController : MonoBehaviour
 {
-    public float angle = 0;
+    [SerializeField] float angle = 0;
+    [SerializeField] float speed = 2f;
+    [SerializeField] float StartAngle = 0;      // 정확한 단위는 연구 필요!
 
     private float lerpTime = 0;
-    private float speed = 2f;
+
+    private void Awake()
+    {
+        lerpTime += StartAngle;        
+    }
 
     private void Update()
     {
