@@ -13,10 +13,18 @@ public class PulleyCheckHeightController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision == parent.LeftCollider || collision == parent.RightCollider)
+        if (collision == parent.LeftCollider) // || collision == parent.RightCollider)
         {
-            Debug.Log("멈춤");
-            parent.StopMoving();
+            Debug.Log("왼쪽이 닿아서 멈춤");
+            parent.Stop = true;
+            parent.MovingLeftDown = true; // 다음에 움직일 순서 : 왼쪽 아래
+        }
+
+        else if (collision == parent.RightCollider)
+        {
+            Debug.Log("오른쪽이 닿아서 멈춤");
+            parent.Stop = true;
+            parent.MovingLeftDown = false; // 다음에 움직일 순서 : 오른쪽 아래
         }
     }
 }
