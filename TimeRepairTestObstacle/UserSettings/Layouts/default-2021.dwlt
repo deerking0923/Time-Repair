@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Project
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 174
+  controlID: 65
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 175
+  controlID: 164
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 176
+  controlID: 165
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -362,10 +362,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 305.2}
-      m_SelectedIDs: 6a5f0000
-      m_LastClickedID: 24426
-      m_ExpandedIDs: 2cfbffffc05f0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 36f3ffff2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -636,9 +636,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 59.68499, y: 18.388117, z: -0.08934636}
+    m_Target: {x: -0.31878626, y: 0.35370657, z: 0.024159603}
     speed: 2
-    m_Value: {x: 59.68499, y: 18.388117, z: -0.08934636}
+    m_Value: {x: -0.31878626, y: 0.35370657, z: 0.024159603}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -689,9 +689,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 15.766126
+    m_Target: 7.850248
     speed: 2
-    m_Value: 15.766126
+    m_Value: 7.850248
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -941,21 +941,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefab
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefab
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Project\Time-Repair\TimeRepairTestObstacle
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 60}
-    m_SelectedIDs: 66610000
-    m_LastClickedID: 24934
+    m_SelectedIDs: 5e610000
+    m_LastClickedID: 24926
     m_ExpandedIDs: 00000000486100004a6100004c6100004e6100005061000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000d25f00008c5f00003c6d00005a7a000048780000b47b0000146b0000dc610000bc5f00005e650000166e0000f8a00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
